@@ -1,0 +1,27 @@
+{
+"Users": [
+	{
+		"id" : 1,
+		"name" : "Admin",
+		"email" : "admin@admin.com",
+		"passwordHash" : "$2b$08$gwXVZGBx0/3NeH3ZfrTz9eoYaejgMUk0jhUuDIitnEp.SXTuMxkoS",
+		"createdAt" : "2025-04-21T05:41:58.057Z",
+		"updatedAt" : "2025-05-08T16:10:00.059Z",
+		"profile" : "admin",
+		"tokenVersion" : 0,
+		"companyId" : 1,
+		"super" : true,
+		"online" : false,
+		"endWork" : "23:59",
+		"startWork" : "00:00",
+		"color" : null,
+		"farewellMessage" : null,
+		"whatsappId" : 1,
+		"allTicket" : "enable",
+		"allowGroup" : true,
+		"defaultMenu" : "closed",
+		"defaultTheme" : "light",
+		"profileImage" : null,
+		"wpp" : null
+	}
+]}
