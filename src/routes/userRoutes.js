@@ -13,5 +13,6 @@ router.put('/users/:userId', isAuth, UserController.update);
 router.get('/users/:userId', isAuth, UserController.show);
 router.delete('/users/:userId', isAuth, UserController.remove);
 router.post('/users/:userId/media-upload', isAuth, upload.array('profileImage'), UserController.mediaUpload);
+router.post('/logout', isAuth, UserController.logout);
 
 module.exports = router;

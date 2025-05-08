@@ -106,5 +106,16 @@ module.exports = {
     writeUsers(users);
     const { passwordHash, ...userNoPass } = users[idx];
     return res.status(200).json(userNoPass);
+  },
+  logout: (req, res) => {
+    // Invalida todos os tokens antigos do usuário autenticado
+    const users = readUsers();
+    const userId = req.user.id;
+    const idx = users.findIndex(u => u.id === userId);
+    if (idx === -1) return res.status(404).json({ error: 'Usuário não encontrado' });
+    users[idx].tokenVersion = (users[idx].tokenVersion || 0) + 1;
+    users[idx].updatedAt = new Date().toISOString();
+    writeUsers(users);
+    return res.status(200).json({ success: true });
   }
 };
