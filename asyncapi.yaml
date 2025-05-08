@@ -1,0 +1,40 @@
+asyncapi: '2.6.0'
+info:
+  title: Eventos em tempo real do usuário
+  version: '1.0.0'
+  description: |
+    Documentação dos eventos Socket.IO emitidos pelo backend CRM Challenge.
+    
+    **URL do servidor:** ws://localhost:3000
+servers:
+  local:
+    url: ws://localhost:3000
+    protocol: socket.io
+channels:
+  userUpdated:
+    description: Evento emitido quando um usuário é atualizado.
+    subscribe:
+      message:
+        name: userUpdated
+        summary: Usuário atualizado
+        payload:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+            email:
+              type: string
+            # ... outros campos do usuário ...
+  userDeleted:
+    description: Evento emitido quando um usuário é deletado.
+    subscribe:
+      message:
+        name: userDeleted
+        summary: Usuário deletado
+        payload:
+          type: object
+          properties:
+            id:
+              type: integer

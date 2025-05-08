@@ -3,7 +3,7 @@
   "info": {
     "title": "API de Autenticação e Usuários",
     "version": "1.0.0",
-    "description": "API para login, renovação de token JWT e gerenciamento de usuários."
+    "description": "API para login, renovação de token JWT e gerenciamento de usuários.\n\n## Eventos em tempo real\n\nEste backend emite eventos via WebSocket (Socket.IO) sempre que um usuário é atualizado ou deletado.\n\n- Documentação dos eventos: consulte o arquivo `asyncapi.yaml` na raiz do projeto.\n- Visualize a documentação dos eventos em https://studio.asyncapi.com/\n- URL do servidor de eventos: `ws://localhost:3000`\n- Eventos emitidos:\n  - `userUpdated`: emitido quando um usuário é atualizado\n  - `userDeleted`: emitido quando um usuário é removido\n\nPara consumir os eventos, conecte-se ao servidor Socket.IO e escute pelos eventos acima."
   },
   "servers": [
     { "url": "http://localhost:3000" }

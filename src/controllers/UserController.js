@@ -66,6 +66,9 @@ module.exports = {
     users[idx].updatedAt = new Date().toISOString();
     writeUsers(users);
     const { passwordHash, ...userNoPass } = users[idx];
+    // Emite evento de atualização via socket
+    const io = req.app.get('io');
+    if (io) io.emit('userUpdated', userNoPass);
     return res.status(200).json(userNoPass);
   },
   show: (req, res) => {
@@ -83,8 +86,12 @@ module.exports = {
     const { userId } = req.params;
     const idx = users.findIndex(u => u.id === Number(userId));
     if (idx === -1) return res.status(404).json({ error: 'Usuário não encontrado' });
+    const removedUser = users[idx];
     users.splice(idx, 1);
     writeUsers(users);
+    // Emite evento de remoção via socket
+    const io = req.app.get('io');
+    if (io) io.emit('userDeleted', { id: removedUser.id });
     return res.status(200).json({ success: true });
   },
   mediaUpload: (req, res) => {
