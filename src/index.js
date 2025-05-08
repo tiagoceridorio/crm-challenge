@@ -11,6 +11,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// Redireciona a home para a documentação do Swagger
+app.get('/', (req, res) => {
+  res.redirect('/api-docs');
+});
 app.use('/', userRoutes);
 
 const JWT_SECRET = 'mysecret';
