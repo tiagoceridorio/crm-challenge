@@ -21,6 +21,6 @@ io.on('connection', (socket) => {
   console.log('Novo cliente conectado ao socket');
 });
 
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`API rodando em http://localhost:${PORT}`);
 });
