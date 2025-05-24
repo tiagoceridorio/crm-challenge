@@ -1,6 +1,8 @@
 const app = require('./index');
 const http = require('http');
 const { Server } = require('socket.io');
+const cors = require('cors');
+
 
 const PORT = 3000;
 const server = http.createServer(app);
