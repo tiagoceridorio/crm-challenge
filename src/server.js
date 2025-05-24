@@ -10,6 +10,8 @@ const io = new Server(server, {
   },
 });
 
+app.use(cors({ origin: '*' }));
+
 // Torna o io acessível globalmente para os controllers
 app.set('io', io);
 
